@@ -13,8 +13,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $posts = DB::select('select * from posts');
+    {   
+
+        $posts = DB::table('posts')->paginate(5);
         return view('index', ['posts' => $posts]);    
     }
 
@@ -56,7 +57,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = DB::select('select * from posts where id=?', [$id]);
+        return view('show',['posts' =>$posts]);
     }
 
     /**

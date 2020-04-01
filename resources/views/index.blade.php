@@ -9,7 +9,18 @@
 		<div class="col-md-6">
 			<h1>CRUB Laravel</h1>
 		</div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-4">
+			<form action="/search" method="get">
+				{{csrf_field()}}
+				<div class="input-group">
+					<input type="search" name="search" class="form-control">
+					<span class="input-group-prepend">
+						<button class="btn btn-primary" type="submit">Search</button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-2 text-right">
 			<a href="{{action('PostController@create')}}" class="btn btn-primary"> Add Data</a>
 		</div>
 	</div>

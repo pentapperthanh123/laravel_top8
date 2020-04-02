@@ -31,7 +31,7 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $posts = DB::table('posts')->where('name','like','%'.$search.'%')->paginate(10);
+        $posts = DB::table('posts')->where('name','like','%'.$search.'%')->orWhere('detail','like','%'.$search.'%')->orWhere('author','like','%'.$search.'%')->paginate(10);
         return view('index',['posts' => $posts]);
     }
 
@@ -43,6 +43,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+            'author' => 'required'
+        ]);
         $name = $request->get('name');
         $detail = $request->get('detail');
         $author = $request->get('author');
@@ -88,6 +93,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+            'author' => 'required'
+        ]);
         $name = $request->get('name');
         $detail = $request->get('detail');
         $author = $request->get('author');

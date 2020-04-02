@@ -14,7 +14,7 @@
 		<div class="col-md-4">
 			<form action="/search" method="get">	
 				<div class="input-group">
-					<input type="search" name="search" class="form-control">
+					<input type="search" name="search" class="form-control" placeholder="Search...">
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="submit">Search</button>
 					</span>
@@ -35,8 +35,8 @@
 				<th><input type="checkbox" class="selectall"></th>
 				<th>ID</th>
 				<th>Name</th>
-				<th>Detail</th>
-				<th>Author</th>
+				<th>Email</th>
+				<th>Phone</th>
 				<th width="210">Action</th>
 			</tr>
 		</thead>
@@ -59,16 +59,6 @@
 			</tr>
 			@endforeach	
 		</tbody>
-		<tfoot>
-			<tr>
-				<th><input type="checkbox" class="selectall2"></th>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Detail</th>
-				<th>Author</th>
-				<th width="210">Action</th>
-			</tr>
-		</tfoot>
 	</table>
 	</form>	
 {{ $posts->links() }}
